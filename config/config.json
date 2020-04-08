@@ -2,7 +2,7 @@
   "development": {
     "username": "postgres",
     "password": "postgres",
-    "database": "database_development",
+    "database": "db_kanban",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
