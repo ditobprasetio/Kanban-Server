@@ -19,6 +19,7 @@ class UserController {
         let token = getToken(payload)
         res.status(201).json({
           name: user.name,
+          email: user.email,
           token
         })
       })
@@ -43,6 +44,7 @@ class UserController {
             let token = getToken(payload)
             res.status(200).json({
               name: user.name,
+              email: user.email,
               token
             })
           }

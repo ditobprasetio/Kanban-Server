@@ -220,7 +220,6 @@ http://localhost:3000
         }
       }
     ]
-  ```
  
 * **Error Response:**
 

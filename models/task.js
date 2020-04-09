@@ -5,7 +5,17 @@ module.exports = (sequelize, DataTypes) => {
     // attributes
     title: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: 'title is required'
+        },
+        notNull: {
+          args: true,
+          msg: 'title is required'
+        }
+      }
     },
     category: {
       type: DataTypes.STRING,
