@@ -30,6 +30,41 @@ class TaskController {
       .catch(next)
   }
 
+  static findById(req, res, next) {
+    Task.findByPk(
+      req.params.id
+    )
+      .then((task) => {
+        if(task) {
+          res.status(200).json(task)
+        }
+        else{
+          next({ name: 'NotFound' })
+        }
+      })
+      .catch(next)
+  }
+
+  static editTitle(req, res, next) {
+    Task.update({
+      title: req.body.title
+    }, {
+      where: {
+        id: req.params.id
+      },
+      returning: true
+    })
+      .then((result) => {
+        if (!result[1]) {
+          res.status(404).json({ name: 'NotFound' })
+        }
+        else {
+          res.status(200).json(result[1][0])
+        }
+      })
+      .catch(next)
+  }
+
   static edit(req, res, next) {
     Task.update({
       category: req.body.category
